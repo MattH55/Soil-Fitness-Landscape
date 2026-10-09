@@ -20,7 +20,7 @@ published soil-health scoring functions standing in for mortality.
 ```
 seed/catalog.py        every number in the project, each with a source key
 backend/build_db.py    builds data/soil_landscape.db and verifies every DOI on Crossref
-backend/build_site.py  compiles dist/index.html (single file; Plotly.js from cdnjs)
+backend/build_site.py  compiles dist/index.html and a root index.html (GitHub Pages; single file, Plotly.js from cdnjs)
 scripts/browsertest/   headless Chrome probe (puppeteer-core) that checks every chart renders
 docs/HANDOFF.md        what to do next, in priority order
 ```

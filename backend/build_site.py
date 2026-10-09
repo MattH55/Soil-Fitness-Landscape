@@ -13,6 +13,7 @@ import sqlite3
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB = os.path.join(ROOT, "data", "soil_landscape.db")
 OUT = os.path.join(ROOT, "dist", "index.html")
+ROOT_COPY = os.path.join(ROOT, "index.html")  # served by GitHub Pages from the branch root
 
 
 def rows(c, sql):
@@ -353,9 +354,10 @@ def main():
     d = load()
     html = TEMPLATE.replace("__DATA__", json.dumps(d)).replace("__BUILT__", d["built"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, "w", encoding="utf-8") as f:
-        f.write(html)
-    print(OUT, f"{len(html):,} bytes")
+    for path in (OUT, ROOT_COPY):
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html)
+        print(path, f"{len(html):,} bytes")
 
 
 if __name__ == "__main__":
