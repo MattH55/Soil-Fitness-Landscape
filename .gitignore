@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+scripts/browsertest/node_modules/
+scripts/browsertest/*.png
+*.db-journal
+.env
